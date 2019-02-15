@@ -1,0 +1,382 @@
+# Tested on Deeptest release 1.12.0
+cbmcArguments:
+  java-generate-no-comments: true
+phases:
+-
+  timeout: 60
+  cbmcArguments:
+    max-nondet-array-length: 10
+    unwind: 1
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 10
+    unwind: 1
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 20
+    unwind: 2
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 20
+    unwind: 2
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 3
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 3
+-
+  timeout: 120
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 4
+    load-containing-class-only: true
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 120
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 50
+    max-nondet-string-length: 50
+    unwind: 4
+    load-containing-class-only: true
+-
+  timeout: 120
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 130
+    max-nondet-string-length: 110
+    unwind: 10
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 120
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 300
+    max-nondet-string-length: 100
+    unwind: 10
+units:
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/controllers/QuestionController.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/controllers/QuestionController.java
+    # Child of QuestionController.class
+    - dir: target/classes
+      file: com/erudika/scoold/core/Comment.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/core/Comment.java
+    # Child of QuestionController.class
+    - dir: target/classes
+      file: com/erudika/scoold/core/Post.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/core/Post.java
+    # Child of QuestionController.class
+    - dir: target/classes
+      file: com/erudika/scoold/core/Profile.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/core/Profile.java
+    # Child of QuestionController.class
+    - dir: target/classes
+      file: com/erudika/scoold/core/Reply.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/core/Reply.java
+    # Child of QuestionController.class
+    - dir: target/classes
+      file: com/erudika/scoold/utils/ScooldUtils.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/utils/ScooldUtils.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/utils/LanguageUtils.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/utils/LanguageUtils.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/utils/ScooldEmailer.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/utils/ScooldEmailer.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/controllers/CommentController.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/controllers/CommentController.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/utils/ScooldUtils.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/utils/ScooldUtils.java
+    # Child of ScooldUtils.class
+    - dir: target/classes
+      file: com/erudika/scoold/core/Revision.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/core/Revision.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/controllers/QuestionsController.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/controllers/QuestionsController.java
+    # Child of QuestionsController.class
+    - dir: target/classes
+      file: com/erudika/scoold/core/Question.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/core/Question.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/controllers/ProfileController.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/controllers/ProfileController.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/utils/CsrfFilter.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/utils/CsrfFilter.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/controllers/VoteController.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/controllers/VoteController.java
+    # Child of VoteController.class
+    - dir: target/classes
+      file: com/erudika/scoold/core/Report.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/core/Report.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/controllers/SigninController.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/controllers/SigninController.java
+    # Child of SigninController.class
+    - dir: target/classes
+      file: com/erudika/scoold/utils/HttpUtils.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/utils/HttpUtils.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/controllers/AdminController.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/controllers/AdminController.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/controllers/SettingsController.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/controllers/SettingsController.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/core/Post.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/core/Post.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/controllers/TranslateController.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/controllers/TranslateController.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/controllers/FeedbackController.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/controllers/FeedbackController.java
+    # Child of FeedbackController.class
+    - dir: target/classes
+      file: com/erudika/scoold/core/Feedback.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/core/Feedback.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/controllers/ReportsController.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/controllers/ReportsController.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/controllers/SearchController.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/controllers/SearchController.java
+    # Child of SearchController.class
+    - dir: target/classes
+      file: com/erudika/scoold/ScooldServer.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/ScooldServer.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/controllers/PeopleController.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/controllers/PeopleController.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/velocity/SpringResourceLoader.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/velocity/SpringResourceLoader.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/velocity/VelocityEngineFactory.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/velocity/VelocityEngineFactory.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/ScooldServer.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/ScooldServer.java
+    # Child of ScooldServer.class
+    - dir: target/classes
+      file: com/erudika/scoold/utils/ScooldRequestInterceptor.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/utils/ScooldRequestInterceptor.java
+    # Child of ScooldServer.class
+    - dir: target/classes
+      file: com/erudika/scoold/utils/CsrfFilter.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/utils/CsrfFilter.java
+    # Child of ScooldServer.class
+    - dir: target/classes
+      file: com/erudika/scoold/utils/ScooldEmailer.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/utils/ScooldEmailer.java
+    # Child of ScooldServer.class
+    - dir: target/classes
+      file: com/erudika/scoold/velocity/VelocityConfigurer.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/velocity/VelocityConfigurer.java
+    # Child of ScooldServer.class
+    - dir: target/classes
+      file: com/erudika/scoold/velocity/VelocityViewResolver.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/velocity/VelocityViewResolver.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/utils/ScooldRequestInterceptor.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/utils/ScooldRequestInterceptor.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/core/Revision.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/core/Revision.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/velocity/VelocityView.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/velocity/VelocityView.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/core/Profile.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/core/Profile.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/core/Report.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/core/Report.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/velocity/VelocityLayoutView.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/velocity/VelocityLayoutView.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/core/Comment.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/core/Comment.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/utils/HttpUtils.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/utils/HttpUtils.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/controllers/RevisionsController.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/controllers/RevisionsController.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/controllers/TagsController.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/controllers/TagsController.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/velocity/VelocityLayoutViewResolver.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/velocity/VelocityLayoutViewResolver.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/core/Feedback.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/core/Feedback.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/controllers/LanguagesController.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/controllers/LanguagesController.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/velocity/VelocityConfigurer.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/velocity/VelocityConfigurer.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/controllers/ErrorController.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/controllers/ErrorController.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/core/Question.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/core/Question.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/core/Reply.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/core/Reply.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/velocity/VelocityViewResolver.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/velocity/VelocityViewResolver.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/controllers/TermsController.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/controllers/TermsController.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/controllers/AboutController.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/controllers/AboutController.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/controllers/NotFoundController.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/controllers/NotFoundController.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/controllers/PrivacyController.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/controllers/PrivacyController.java
+  - target:
+    - dir: target/classes
+      file: com/erudika/scoold/velocity/VelocityConfig.class
+      sourceDir: src/main/java
+      sourceFile: com/erudika/scoold/velocity/VelocityConfig.java
